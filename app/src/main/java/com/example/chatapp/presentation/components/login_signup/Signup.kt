@@ -22,9 +22,11 @@ import com.example.chatapp.R
 import com.example.chatapp.presentation.components.navigation.Screen
 
 @Composable
-//@Preview(showSystemUi = true)
-fun Signup(navController : NavController){
-    Column(modifier = Modifier
+fun Signup(
+    navController : NavController,
+    modifier : Modifier = Modifier
+){
+    Column(modifier
         .fillMaxWidth()
         .padding(12.dp),
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -60,7 +62,7 @@ fun Signup(navController : NavController){
                 Icon(imageVector = Icons.Filled.Person, contentDescription = null )
             }
             ,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp))
 
@@ -77,7 +79,7 @@ fun Signup(navController : NavController){
                 Icon(imageVector = Icons.Filled.Email, contentDescription = null )
             }
             ,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp))
 
@@ -94,7 +96,7 @@ fun Signup(navController : NavController){
                 Icon(imageVector = Icons.Filled.Lock, contentDescription = null )
             }
             ,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp))
 
@@ -111,17 +113,18 @@ fun Signup(navController : NavController){
                 Icon(imageVector = Icons.Filled.Lock, contentDescription = null )
             }
             ,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp))
         
         Row(
             verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .padding(12.dp)) {
+            modifier = modifier
+                .padding(12.dp)
+        ) {
             Text(text = "Already have an account?")
-            Spacer(modifier = Modifier.size(10.dp))
+            Spacer(modifier.size(10.dp))
             OutlinedButton(onClick = {
                 navController.navigate(Screen.Login.route){
                     popUpTo(0)

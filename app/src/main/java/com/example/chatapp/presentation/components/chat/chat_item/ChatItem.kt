@@ -22,14 +22,14 @@ import com.example.chatapp.R
 
 @Composable
 @Preview(showBackground = true, showSystemUi = true)
-fun ChatItem(){
+fun ChatItem(modifier:Modifier = Modifier){
     Card(
         elevation = 4.dp,
         shape = RoundedCornerShape(20.dp),
 //        backgroundColor = Color(245,245,245)
     ) {
         Row(
-            Modifier
+            modifier
                 .clickable { Log.d("RowClick","CLicked row elem") }
                 .height(90.dp)
                 .fillMaxWidth()
@@ -39,7 +39,7 @@ fun ChatItem(){
             //profile image
             Image(painter = painterResource(id = R.drawable.ic_launcher_foreground),
                 contentDescription = "null",
-                modifier = Modifier
+                modifier = modifier
                     .size(60.dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Inside)
@@ -48,13 +48,13 @@ fun ChatItem(){
                 Text(
                     text = "UserName",
                     textAlign = TextAlign.Start,
-                    modifier = Modifier
+                    modifier = modifier
                         .fillMaxWidth(0.80f)
                     )
 
                 Text(text = "Last message",
                     textAlign = TextAlign.Start,
-                    modifier = Modifier
+                    modifier = modifier
                         .fillMaxWidth(0.80f)
                    )
             }
