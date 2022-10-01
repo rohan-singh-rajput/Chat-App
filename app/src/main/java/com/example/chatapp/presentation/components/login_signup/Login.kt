@@ -22,7 +22,8 @@ import com.example.chatapp.presentation.components.navigation.Screen
 
 @Composable
 fun Login(
-    navController : NavController
+    navController : NavController,
+    modifier:Modifier = Modifier
 ){
     var userNameText by remember {
         mutableStateOf(TextFieldValue(""))
@@ -40,7 +41,11 @@ fun Login(
         //lottie
         val composition  by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.logo))
         val logoAnimationState = animateLottieCompositionAsState(composition = composition)
-        LottieAnimation(composition = composition, progress = { logoAnimationState.progress }, modifier = Modifier.size(300.dp))
+        LottieAnimation(
+            composition = composition,
+            progress = { logoAnimationState.progress },
+            modifier
+                .size(300.dp))
 
         TextField(
             value = userNameText,
@@ -54,7 +59,7 @@ fun Login(
             placeholder = {
                 Text(text = "enter your username")
             },
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp),
         )
@@ -71,7 +76,7 @@ fun Login(
                 Icon(imageVector = Icons.Filled.Lock, contentDescription = null )
             }
             ,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(10.dp))
 
@@ -82,13 +87,13 @@ fun Login(
         }
 
         Row(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .padding(12.dp),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "New User?", modifier = Modifier.padding(12.dp))
+            Text(text = "New User?", modifier = modifier.padding(12.dp))
 
             OutlinedButton(onClick = { navController.navigate(Screen.Signup.route) },
             border = BorderStroke(1.dp, color = MaterialTheme.colors.primary)
