@@ -25,17 +25,17 @@ import com.example.chatapp.presentation.components.chat.chat_list.ChatList
 
 @Composable
 @Preview(showSystemUi = true)
-fun Home(){
+fun Home(modifier:Modifier = Modifier){
     Column() {
         Row(
-            modifier = Modifier
+            modifier
                 .fillMaxWidth()
                 .background(color = MaterialTheme.colors.primary),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Image(painter = painterResource(id = R.drawable.ic_launcher_foreground),
                 contentDescription = "null",
-                modifier = Modifier
+                modifier
                     .size(60.dp)
                     .clip(CircleShape),
                 contentScale = ContentScale.Inside)
@@ -44,10 +44,11 @@ fun Home(){
         }
 
         Card(elevation = 20.dp,
-            modifier = Modifier
-            .fillMaxSize()
-            .clip(RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp))) {
+            modifier = modifier
+                .fillMaxSize()
+                .clip(RoundedCornerShape(topStart = 10.dp, topEnd = 10.dp))) {
             ChatList()
+            Spacer(modifier)
         }
     }
 
