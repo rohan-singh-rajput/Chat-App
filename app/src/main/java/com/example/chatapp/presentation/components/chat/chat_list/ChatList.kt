@@ -41,12 +41,7 @@ fun ChatList(){
         item{
             ChatItem()
         }
-        item{
-            ChatItem()
-        }
-        item{
-            ChatItem()
-        }
+        
 
 
 
